@@ -2,16 +2,30 @@
  pero que tenga colocado los numeros primos en las primares posiciones dejando 
  el resto para el final */
   
-function primos(){
-    let array = [1, 2, 3, 4, 5, 6, 7,8 ,9 ,10];
-if( let i= array.length; i<10; i++)
-    //sacar los primos 
-    for () 
-    //devolver
-    return ;
+ function esPrimo(numero) {
+    if (numero < 2) return false;
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+      if (numero % i === 0) return false;
+    }
+    return true;
+  }
+  
+  function ordenarNumerosPrimos(array) {
+    const primos = [];
+    const noPrimos = [];
+  
+    for (let num of array) {
+      if (esPrimo(num)) {
+        primos.push(num);
+      } else {
+        noPrimos.push(num);
+      }
+    }
+  
+    return primos.concat(noPrimos);
+  }
 
-    //ordenar
-};
-
-
+  const arrayNumeros = [17, 4, 23, 8, 11, 6, 13, 10, 5, 9];
+  const arrayOrdenado = ordenarNumerosPrimos(arrayNumeros);
+  console.log(arrayOrdenado);
 
